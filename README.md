@@ -1,10 +1,20 @@
-# jad-sm.github.io
-This is my personal portfolio website.
+# GESTIONVOYAGE
 
-## Projects
--Perfume Shop Website.
--Coffe Jad Landing Page.
--Hospital Management System in c++ .
+GESTIONVOYAGE is a travel management system designed to help users manage bookings, clients, and trips efficiently.
 
-## Contact
--Email: jadsalameh514@gmail.com
+## Features
+- Add, edit, and delete bookings
+- Manage clients and trips
+- Simple and user-friendly interface
+- Data stored in MySQL database
+
+## Technologies Used
+- PHP
+- MySQL
+- HTML & CSS
+- JavaScript (optional enhancements)
+
+## How to Run
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/jad-sm/GESTIONVOYAGE.git
