@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Monde - Agence de Voyage</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: #1e293b;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      flex-wrap: nowrap; /* force la ligne horizontale */
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      flex-direction: row; /* toujours en ligne */
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff6b6b;
+    }
+
+    .menu-button {
+      background: #ff6b6b;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      font-weight: 500;
+    }
+
+    .menu-button:hover {
+      background: #ff3b3b;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+      height: 100vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      margin-top: 100px;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      font-size: 1.5em;
+      max-width: 600px;
+    }
+
+    header button {
+      padding: 15px 30px;
+      font-size: 1em;
+      background: #ff6b6b;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    header button:hover {
+      background: #ff3b3b;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2em;
+      color: #2c3e50;
+    }
+
+    .destinations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card-content p {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    form input, form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      padding: 12px;
+      background: #3498db;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #2980b9;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      filter: invert(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+      filter: invert(60%) sepia(100%) saturate(500%) hue-rotate(320deg);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Explore Monde</div>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">A propos</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <h1>Explore Monde</h1>
+      <p>Decouvrez les plus belles destinations a travers le monde avec notre agence de voyage professionnelle.</p>
+      <button onclick="scrollToSection('destinations')">Voir les destinations</button>
+    </div>
+  </header>
+
+  <section id="destinations">
+    <h2>Destinations Populaires</h2>
+    <div class="destinations">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Bali">
+        <div class="card-content">
+          <h3>Bali, Indonesie</h3>
+          <p>A partir de 799 $  Plages paradisiaques et rizieres en terrasse.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" alt="Paris">
+        <div class="card-content">
+          <h3>Paris, France</h3>
+          <p>A partir de 599 $  Romance, gastronomie et culture eternelle.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29" alt="Tokyo">
+        <div class="card-content">
+          <h3>Tokyo, Japon</h3>
+          <p>A partir de 999 $  Tradition et modernite dans une ville vibrante.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="Liban.png" alt="Liban">
+        <div class="card-content">
+          <h3>Liban</h3>
+          <p>A partir de 699$  Un pays riche en histoire et en culture.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="Turkey.png" alt="Turkey">
+        <div class="card-content">
+          <h3>Turkey</h3>
+          <p>A partir de 400 $  La ville qui ne dort jamais.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="Georgia.png" alt="Georgia">
+        <div class="card-content">
+          <h3>Georgia</h3>
+          <p>A partir de 500 $  Un pays riche en couleur vert et la paysage magique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contactez-Nous</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre e-mail" required />
+      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Explore Monde. Tous droits reserves.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/?locale=fr_FR" aria-label="Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
+      </a>
+      <a href="https://www.instagram.com/accounts/login/" aria-label="Instagram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+      </a>
+      <a href="https://x.com/login?" aria-label="Twitter">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Merci pour votre message ! Nous vous contacterons bientôt.");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
