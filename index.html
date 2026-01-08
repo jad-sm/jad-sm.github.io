@@ -19,8 +19,36 @@ body {
   line-height: 1.6;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #020617;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid #1e293b;
+}
+
+nav h2 {
+  color: #38bdf8;
+}
+
+nav a {
+  color: #cbd5f5;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
 header {
-  padding: 90px 20px;
+  padding: 140px 20px 100px;
   text-align: center;
   background: linear-gradient(135deg, #020617, #0f172a);
 }
@@ -36,10 +64,33 @@ header p {
   color: #cbd5f5;
 }
 
+header a {
+  display: inline-block;
+  margin-top: 30px;
+  background: #38bdf8;
+  color: #020617;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header a:hover {
+  background: #0ea5e9;
+}
+
 section {
   max-width: 1100px;
-  margin: 80px auto;
+  margin: 100px auto;
   padding: 0 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section h2 {
@@ -49,7 +100,7 @@ section h2 {
   color: #38bdf8;
 }
 
-.projects {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
@@ -60,7 +111,7 @@ section h2 {
   border-radius: 14px;
   padding: 25px;
   border: 1px solid #1e293b;
-  transition: all 0.3s ease;
+  transition: 0.3s;
   text-align: center;
 }
 
@@ -75,20 +126,18 @@ section h2 {
 }
 
 .card p {
-  font-size: 0.95rem;
   color: #cbd5f5;
 }
 
 .card a {
   display: inline-block;
+  margin-top: 15px;
   text-decoration: none;
-  color: #020617;
   background: #38bdf8;
+  color: #020617;
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: bold;
-  margin: 10px 6px 0;
-  transition: 0.3s;
 }
 
 .card a:hover {
@@ -97,7 +146,6 @@ section h2 {
 
 .contact {
   text-align: center;
-  color: #cbd5f5;
 }
 
 .contact a {
@@ -117,58 +165,80 @@ footer {
 
 <body>
 
+<nav>
+  <h2>Jad Sm</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
 <header>
   <h1>Jad Sm</h1>
   <p>Web Developer | Data Analyst</p>
+  <a href="CV.pdf" download>Download CV</a>
 </header>
 
-<section>
+<section id="about">
   <h2>About Me</h2>
-  <p style="max-width:750px;margin:auto;text-align:center;color:#cbd5f5;">
-    Motivated Web Developer with strong skills in HTML, CSS, and JavaScript ...
-    I enjoy building clean, responsive websites and improving user experience.
-    Always eager to learn new technologies and grow professionally.
+  <p style="max-width:750px;margin:auto;text-align:center;">
+    Motivated Web Developer passionate about building clean, responsive
+    websites and improving user experience. Always eager to learn and grow.
   </p>
 </section>
 
-<section>
+<section id="skills">
   <h2>Skills</h2>
-  <div class="projects">
+  <div class="grid">
     <div class="card"><h3>HTML</h3></div>
     <div class="card"><h3>CSS</h3></div>
     <div class="card"><h3>JavaScript</h3></div>
-    <div class="card"><h3>Php</h3></div>
+    <div class="card"><h3>PHP</h3></div>
+    <div class="card"><h3>MySQL</h3></div>
     <div class="card"><h3>Git & GitHub</h3></div>
     <div class="card"><h3>Responsive Design</h3></div>
-    <div class="card"><h3>Web Accessibility</h3></div>
+    <div class="card"><h3>Wordpress</h3></div>
   </div>
 </section>
 
-<section>
+<section id="projects">
   <h2>Projects</h2>
-  <div class="projects">
+  <div class="grid">
     <div class="card">
       <h3>GestionVoyage</h3>
-      <p>
-        Travel agency website with clean UI and multiple pages for managing trips and clients.
-      </p>
+      <p>Travel agency website with clean UI and multiple pages.</p>
       <a href="https://jad-sm.github.io/GestionVoyage" target="_blank">Live Demo</a>
-      <a href="https://github.com/jad-sm/GestionVoyage" target="_blank">Code</a>
     </div>
   </div>
 </section>
 
-<section>
+<section id="contact">
   <h2>Contact</h2>
   <div class="contact">
-    <p>📧 Email: <a href="mailto:jadsalameh514@gmail.com">jadsalameh514@gmail.com</a></p>
-    <p>💼 GitHub: <a href="https://github.com/jad-sm" target="_blank">github.com/jad-sm</a></p>
+    <p>📧 <a href="mailto:jadsalameh514@gmail.com">jadsalameh514@gmail.com</a></p>
+    <p>💼 <a href="https://github.com/jad-sm" target="_blank">github.com/jad-sm</a></p>
   </div>
 </section>
 
 <footer>
   © 2026 Jad Sm — Portfolio
 </footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
