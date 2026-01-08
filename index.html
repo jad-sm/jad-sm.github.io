@@ -1,55 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jad Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #6b4cff;
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-    section {
-      background: white;
-      margin: 20px auto;
-      padding: 20px;
-      width: 90%;
-      max-width: 900px;
-      border-radius: 10px;
-    }
-    .project a {
-      text-decoration: none;
-      color: #6b4cff;
-      font-weight: bold;
-      margin-right: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jad Sm Portfolio</title>
+<style>
+  /* Reset */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(90deg, #6b4cff, #a259ff);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  header h1 { font-size: 2.5rem; }
+  header p { font-size: 1.2rem; margin-top: 10px; }
+
+  section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #6b4cff;
+  }
+
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 280px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  .project-card h3 {
+    color: #6b4cff;
+    margin-bottom: 10px;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+
+  .project-card a {
+    text-decoration: none;
+    color: white;
+    background: #6b4cff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background 0.3s;
+  }
+
+  .project-card a:hover {
+    background: #a259ff;
+  }
+
+  /* Responsive */
+  @media(max-width: 600px) {
+    .projects { flex-direction: column; align-items: center; }
+    .project-card { width: 90%; }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <h1>Jad Sm</h1>
-  <p>Web Developer</p>
+  <p>Web Developer | Portfolio</p>
 </header>
 
-<section>
+<section id="projects">
   <h2>My Projects</h2>
+  <div class="projects">
 
-  <div class="project">
-    <h3>GestionVoyage</h3>
-    <p>Travel agency website with multiple pages.</p>
-    <a href="https://jad-sm.github.io/gestionvoyage" target="_blank">Live Demo</a>
-    <a href="https://github.com/jad-sm/GESTIONVOYAGEe" target="_blank">Source Code</a>
+    <div class="project-card">
+      <h3>GESTIONVOYAGE</h3>
+      <p>Travel agency website with multiple pages to manage bookings, clients, and trips efficiently.</p>
+      <a href="https://jad-sm.github.io/gestionvoyage" target="_blank">Live Demo</a>
+      <a href="https://github.com/jad-sm/GESTIONVOYAGE" target="_blank">Source Code</a>
+    </div>
+    <div class="project-card">
+      <h3>Project Name</h3>
+      <p>Short description of the project.</p>
+      <a href="#" target="_blank">Live Demo</a>
+      <a href="#" target="_blank">Source Code</a>
+    </div>
   </div>
-
 </section>
 
 </body>
