@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
-  
     :root {
       --color-bg-primary: #0f172a;
       --color-bg-secondary: #1e293b;
@@ -24,30 +23,24 @@
       --color-accent-primary: #6366f1;
       --color-accent-secondary: #22d3ee;
       --color-accent-gradient: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
-      
       --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      
       --spacing-xs: 0.5rem;
       --spacing-sm: 1rem;
       --spacing-md: 1.5rem;
       --spacing-lg: 2rem;
       --spacing-xl: 3rem;
       --spacing-2xl: 5rem;
-      
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 20px;
       --radius-full: 50px;
-      
       --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
       --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.2);
       --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
       --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
-      
       --transition-fast: 0.2s ease;
       --transition-normal: 0.3s ease;
       --transition-slow: 0.5s ease;
-      
       --container-max: 1200px;
     }
 
@@ -179,31 +172,91 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero__bg {
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 50%);
-      animation: heroBackground 20s ease-in-out infinite;
+      inset: 0;
+      z-index: 0;
     }
 
-    @keyframes heroBackground {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(-2%, 2%) rotate(1deg); }
+    .hero__bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(34, 211, 238, 0.1) 0%, transparent 40%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 60% at 90% 10%, rgba(34, 211, 238, 0.12) 0%, transparent 40%),
+        radial-gradient(ellipse 60% 50% at 10% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
     }
 
-    .hero__wave {
+    .hero__bg-orb {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 120px;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23f1f5f9' fill-opacity='0.05' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
-      background-size: cover;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero__orb-1 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .hero__orb-2 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.35) 0%, transparent 70%);
+      top: 50%;
+      right: -50px;
+      transform: translateY(-50%);
+      animation-delay: -2s;
+    }
+
+    .hero__orb-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+      bottom: -50px;
+      left: 30%;
+      animation-delay: -4s;
+    }
+
+    .hero__orb-4 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.25) 0%, transparent 70%);
+      top: 30%;
+      left: 60%;
+      animation-delay: -6s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(20px, -20px) scale(1.05); }
+      50% { transform: translate(-10px, 10px) scale(0.95); }
+      75% { transform: translate(15px, 15px) scale(1.02); }
+    }
+
+    .hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+    }
+
+    .hero__noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.02;
       pointer-events: none;
     }
 
@@ -613,6 +666,30 @@
         height: 45px;
         font-size: 1.1rem;
       }
+
+      .hero__bg-orb {
+        opacity: 0.3;
+      }
+
+      .hero__orb-1 {
+        width: 250px;
+        height: 250px;
+      }
+
+      .hero__orb-2 {
+        width: 200px;
+        height: 200px;
+      }
+
+      .hero__orb-3 {
+        width: 180px;
+        height: 180px;
+      }
+
+      .hero__orb-4 {
+        width: 120px;
+        height: 120px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -685,6 +762,15 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg">
+        <div class="hero__bg-gradient"></div>
+        <div class="hero__bg-orb hero__orb-1"></div>
+        <div class="hero__bg-orb hero__orb-2"></div>
+        <div class="hero__bg-orb hero__orb-3"></div>
+        <div class="hero__bg-orb hero__orb-4"></div>
+        <div class="hero__grid"></div>
+        <div class="hero__noise"></div>
+      </div>
       <div class="hero__content">
         <h1 class="hero__title" id="hero-title">
           My <span>Portfolio</span>
@@ -701,12 +787,11 @@
           <a href="https://www.linkedin.com/in/jad-sm/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
             <i class="fab fa-linkedin-in" aria-hidden="true"></i>
           </a>
-          <a href="/cdn-cgi/l/email-protection#cea4afaabdafa2afa3aba6fbfffa8ea9a3afa7a2e0ada1a3" class="social-link" aria-label="Email me">
+          <a href="/cdn-cgi/l/email-protection#610b000512000d000c040954505521060c00080d4f020e0c" class="social-link" aria-label="Email me">
             <i class="fas fa-envelope" aria-hidden="true"></i>
           </a>
         </div>
       </div>
-      <div class="hero__wave" aria-hidden="true"></div>
     </section>
 
     <section id="about" class="section about" aria-labelledby="about-title">
@@ -792,7 +877,7 @@
           <span class="contact__icon" aria-hidden="true">
             <i class="fas fa-envelope"></i>
           </span>
-          <a href="https://mail.google.com/mail/u/0/" class="contact__link"><span class="__cf_email__" data-cfemail="1973787d6a787578747c712c282d597e74787075377a7674">jadsalameh514@gmail.com</span></a>
+          <a href="/cdn-cgi/l/email-protection#7218131601131e131f171a47434632151f131b1e5c111d1f" class="contact__link"><span class="__cf_email__" data-cfemail="cba1aaafb8aaa7aaa6aea3fefaff8baca6aaa2a7e5a8a4a6">[email&#160;protected]</span></a>
         </div>
         <div class="contact__item">
           <span class="contact__icon" aria-hidden="true">
