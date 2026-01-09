@@ -1,249 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jad Sm | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jad Sm | Portfolio</title>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-body {
-  background: #0f172a;
-  color: #e5e7eb;
-  line-height: 1.6;
-}
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
 
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #020617;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-  border-bottom: 1px solid #1e293b;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-nav h2 {
-  color: #38bdf8;
-}
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #6366f1, #22d3ee);
+      color: #fff;
+    }
 
-nav a {
-  color: #cbd5f5;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-}
+    header h1 {
+      font-size: 3rem;
+    }
 
-nav a:hover {
-  color: #38bdf8;
-}
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
 
-header {
-  padding: 140px 20px 100px;
-  text-align: center;
-  background: linear-gradient(135deg, #020617, #0f172a);
-}
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-header h1 {
-  font-size: 3rem;
-  color: #38bdf8;
-}
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #a5b4fc;
+    }
 
-header p {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  color: #cbd5f5;
-}
+    .about {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
 
-header a {
-  display: inline-block;
-  margin-top: 30px;
-  background: #38bdf8;
-  color: #020617;
-  padding: 14px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
 
-header a:hover {
-  background: #0ea5e9;
-}
+    .skill {
+      background: #1e293b;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+    }
 
-section {
-  max-width: 1100px;
-  margin: 100px auto;
-  padding: 0 20px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
 
-section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .project-card {
+      background: #1e293b;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      transition: transform 0.3s;
+    }
 
-section h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 50px;
-  color: #38bdf8;
-}
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
-}
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
 
-.card {
-  background: #020617;
-  border-radius: 14px;
-  padding: 25px;
-  border: 1px solid #1e293b;
-  transition: 0.3s;
-  text-align: center;
-}
+    .project-content {
+      padding: 20px;
+    }
 
-.card:hover {
-  transform: translateY(-8px);
-  border-color: #38bdf8;
-}
+    .project-content h3 {
+      margin-bottom: 10px;
+      color: #93c5fd;
+    }
 
-.card h3 {
-  color: #38bdf8;
-  margin-bottom: 12px;
-}
+    .project-content p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
 
-.card p {
-  color: #cbd5f5;
-}
+    .project-content a {
+      display: inline-block;
+      margin-top: 15px;
+      background: #6366f1;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
 
-.card a {
-  display: inline-block;
-  margin-top: 15px;
-  text-decoration: none;
-  background: #38bdf8;
-  color: #020617;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-}
+    .contact {
+      text-align: center;
+      font-size: 1.1rem;
+    }
 
-.card a:hover {
-  background: #0ea5e9;
-}
+    .contact a {
+      color: #38bdf8;
+      font-weight: bold;
+    }
 
-.contact {
-  text-align: center;
-}
-
-.contact a {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #94a3b8;
-  border-top: 1px solid #1e293b;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #020617;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <h2>Jad Sm</h2>
-  <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+  <header>
+    <h1>Jad Sm</h1>
+    <p>Web Developer | Data Analyst</p>
+  </header>
 
-<header>
-  <h1>Jad Sm</h1>
-  <p>Web Developer | Data Analyst</p>
-  <a href="CV.pdf" download>Download CV</a>
-</header>
+  <section>
+    <h2>About Me</h2>
+    <p class="about">
+      I am a motivated junior Web Developer and Data Analyst.
+      I enjoy building clean web interfaces and analyzing data
+      to extract meaningful insights using SQL and modern tools.
+    </p>
+  </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p style="max-width:750px;margin:auto;text-align:center;">
-    Motivated Web Developer passionate about building clean, responsive
-    websites and improving user experience. Always eager to learn and grow.
-  </p>
-</section>
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">PHP</div>
+      <div class="skill">MySQL</div>
+      <div class="skill">SQL</div>
+      <div class="skill">SQLite</div>
+      <div class="skill">Data Analysis</div>
+      <div class="skill">Git & GitHub</div>
+    </div>
+  </section>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="grid">
-    <div class="card"><h3>HTML</h3></div>
-    <div class="card"><h3>CSS</h3></div>
-    <div class="card"><h3>JavaScript</h3></div>
-    <div class="card"><h3>PHP</h3></div>
-    <div class="card"><h3>MySQL</h3></div>
-    <div class="card"><h3>Git & GitHub</h3></div>
-    <div class="card"><h3>Responsive Design</h3></div>
-    <div class="card"><h3>Wordpress</h3></div>
-  </div>
-</section>
-
-<section id="projects">
+  <section>
   <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>GestionVoyage</h3>
-      <p>Travel agency website with clean UI and multiple pages.</p>
-      <a href="https://jad-sm.github.io/GestionVoyage" target="_blank">View Project </a>
+
+  <div class="projects">
+
+    <div class="project-card">
+      <img src="images/gestionvoyage.png" alt="Gestion Voyage Website">
+      <div class="project-content">
+        <h3>Gestion Voyage</h3>
+        <p>Travel management website built with HTML, CSS, PHP and MySQL.</p>
+        <a href="https://jad-sm.github.io/GestionVoyage/" target="_blank">
+          View Project
+        </a>
+      </div>
     </div>
-    <div class="card">
-      <h3>Sales Data Analysis</h3>
-      <p>Junior Data Analysis project using SQLite and SQL queries to analyze sales data.</p>
-      <a href="https://github.com/jad-sm/sales-data-analysis" target="_blank">View Project</a>
+
+    <div class="project-card">
+      <img src="images/sales-analysis.png" alt="Sales Data Analysis">
+      <div class="project-content">
+        <h3>Sales Data Analysis</h3>
+        <p>Junior data analysis project using SQL and SQLite.</p>
+        <a href="https://github.com/jad-sm/sales-data-analysis" target="_blank">
+          View Project
+        </a>
+      </div>
     </div>
+
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="contact">
-    <p>📧 <a href="mailto:jadsalameh514@gmail.com">jadsalameh514@gmail.com</a></p>
-    <p>💼 <a href="https://github.com/jad-sm" target="_blank">github.com/jad-sm</a></p>
-  </div>
-</section>
+  <section>
+    <h2>Contact</h2>
+    <p class="contact">
+      Email:
+      <a href="mailto:jadsalameh514@gmail.com">
+        jadsalameh514@gmail.com
+      </a>
+    </p>
+  </section>
 
-<footer>
-  © 2026 Jad Sm — Portfolio
-</footer>
-
-<script>
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.2 });
-
-sections.forEach(section => observer.observe(section));
-</script>
+  <footer>
+    © 2026 Jad Sm — All rights reserved
+  </footer>
 
 </body>
 </html>
