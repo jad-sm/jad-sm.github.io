@@ -25,19 +25,48 @@
     }
 
     header {
-      padding: 80px 20px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       background: linear-gradient(135deg, #6366f1, #22d3ee);
       color: #fff;
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 {
-      font-size: 3rem;
+    .header-content h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
+    .header-content p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .btn-cv {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #fff;
+      color: #6366f1;
+      border-radius: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn-cv:hover {
+      background: #93c5fd;
+      transform: translateY(-5px);
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px);}
+      100% { opacity: 1; transform: translateY(0);}
     }
 
     section {
@@ -145,8 +174,11 @@
 <body>
 
   <header>
-    <h1>Jad Sm</h1>
-    <p>Web Developer | Data Analyst</p>
+    <div class="header-content">
+      <h1>Jad Sm</h1>
+      <p>Web Developer | Data Analyst</p>
+      <a href="CV.pdf" class="btn-cv" target="_blank">Download CV</a>
+    </div>
   </header>
 
   <section>
@@ -175,42 +207,41 @@
   </section>
 
   <section>
-  <h2>Projects</h2>
+    <h2>Projects</h2>
+    <div class="projects">
 
-  <div class="projects">
-
-    <div class="project-card">
-      <img src="images/gestionvoyage.png" alt="Gestion Voyage Website">
-      <div class="project-content">
-        <h3>Gestion Voyage</h3>
-        <p>Travel management website built with HTML, CSS, PHP and MySQL.</p>
-        <a href="https://jad-sm.github.io/GestionVoyage/" target="_blank">
-          View Project
-        </a>
+      <div class="project-card">
+        <img src="images/gestionvoyage.png" alt="Gestion Voyage Website">
+        <div class="project-content">
+          <h3>Gestion Voyage</h3>
+          <p>Travel management website built with HTML, CSS, PHP and MySQL.</p>
+          <a href="https://jad-sm.github.io/GestionVoyage/" target="_blank">
+            View Project
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="project-card">
-      <img src="images/sales-analysis.png" alt="Sales Data Analysis">
-      <div class="project-content">
-        <h3>Sales Data Analysis</h3>
-        <p>Junior data analysis project using SQL and SQLite.</p>
-        <a href="https://github.com/jad-sm/sales-data-analysis" target="_blank">
-          View Project
-        </a>
+      <div class="project-card">
+        <img src="images/sales-analysis.png" alt="Sales Data Analysis">
+        <div class="project-content">
+          <h3>Sales Data Analysis</h3>
+          <p>Junior data analysis project using SQL and SQLite.</p>
+          <a href="https://github.com/jad-sm/sales-data-analysis" target="_blank">
+            View Project
+          </a>
+        </div>
       </div>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
   <section id="contact">
-  <h2>Contact</h2>
-  <div class="contact">
-    <p>📧 <a href="mailto:jadsalameh514@gmail.com">jadsalameh514@gmail.com</a></p>
-    <p>💼 <a href="https://github.com/jad-sm" target="_blank">github.com/jad-sm</a></p>
-  </div>
-</section>
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>📧 <a href="mailto:jadsalameh514@gmail.com">jadsalameh514@gmail.com</a></p>
+      <p>💼 <a href="https://github.com/jad-sm" target="_blank">github.com/jad-sm</a></p>
+    </div>
+  </section>
 
   <footer>
     © 2026 Jad Sm — All rights reserved
