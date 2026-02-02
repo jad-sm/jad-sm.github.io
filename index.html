@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jad Sm - Web Developer & Data Analyst Portfolio">
+  <meta name="description" content="Jad Salameh - Web Developer & Data Analyst Portfolio">
   <title>Jad Salameh | Web Developer & Data Analyst</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
   <style>
     :root {
@@ -36,6 +37,15 @@
       overflow-x: hidden;
     }
 
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
     .navbar {
       position: fixed; top: 0; width: 100%; padding: 1.5rem;
       background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px);
@@ -48,8 +58,8 @@
     .navbar__link { color: var(--color-text-secondary); font-weight: 500; text-decoration: none; transition: 0.3s; }
     .navbar__link:hover { color: var(--color-accent-secondary); }
 
-    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
-    .hero__content { z-index: 2; max-width: 800px; padding: 2rem; }
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero__content { z-index: 2; max-width: 800px; padding: 2rem; border-radius: var(--radius-md); }
     .hero__title { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1rem; }
     .hero__title span { background: var(--color-accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero__cta { 
@@ -78,7 +88,6 @@
 
     .projects__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
     .project-link { text-decoration: none; color: inherit; display: block; }
-
     .project-card { 
       background: var(--color-bg-secondary); border-radius: var(--radius-md); overflow: hidden; 
       backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
@@ -101,10 +110,9 @@
         border: 1px solid rgba(255,255,255,0.05);
     }
     .social-icon:hover { transform: translateY(-10px) rotate(360deg); color: white; }
-    
-    .social-icon.github:hover { background: #333; box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); }
-    .social-icon.linkedin:hover { background: #0077b5; box-shadow: 0 0 25px rgba(0, 119, 181, 0.5); }
-    .social-icon.whatsapp:hover { background: #25d366; box-shadow: 0 0 25px rgba(37, 211, 102, 0.5); }
+    .social-icon.github:hover { background: #333; box-shadow: 0 0 25px rgba(255, 255, 255, 0.4); }
+    .social-icon.linkedin:hover { background: #0077b5; box-shadow: 0 0 25px rgba(0, 119, 181, 0.6); }
+    .social-icon.whatsapp:hover { background: #25d366; box-shadow: 0 0 25px rgba(37, 211, 102, 0.6); }
 
     @media (max-width: 768px) {
       .skills__container { grid-template-columns: 1fr; }
@@ -128,6 +136,7 @@
 
   <main>
     <section class="hero">
+      <div id="particles-js"></div>
       <div class="hero__content">
         <h1 class="hero__title">Turning <span>Data</span> Into Digital Reality</h1>
         <p style="color: var(--color-text-secondary); margin-bottom: 2rem; font-size: 1.2rem;">Web Developer & Data Analyst specialized in interactive insights.</p>
@@ -155,9 +164,7 @@
           <span class="skill-tag">Power BI</span>
           <span class="skill-tag">Data Visualization</span>
           <span class="skill-tag">RESTful APIs</span>
-          <span class="skill-tag">HTML5</span> 
-          <span class="skill-tag">CSS3</span> 
-          <span class="skill-tag">Modern JS</span> 
+          <span class="skill-tag">HTML5/CSS3</span> 
         </div>
         <div>
           <canvas id="skillsChart"></canvas>
@@ -239,6 +246,31 @@
   </footer>
 
   <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 120, density: { enable: true, value_area: 800 } },
+        color: { value: ['#6366f1', '#22d3ee'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.6, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#22d3ee', opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 2.5, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { 
+          onhover: { enable: true, mode: 'bubble' }, 
+          onclick: { enable: true, mode: 'repulse' }, 
+          resize: true 
+        },
+        modes: { 
+          bubble: { distance: 200, size: 6, duration: 2, opacity: 0.8, speed: 3 },
+          repulse: { distance: 200, duration: 0.4 }
+        }
+      },
+      retina_detect: true
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
